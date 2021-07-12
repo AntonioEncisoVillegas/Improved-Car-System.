@@ -49,14 +49,15 @@ def update(id):
     task = todo.query.get_or_404(id)
     if request.method == 'POST':
         task.content = request.form[' content']
+
         
         try:
             db.session.commit()
             return redirect ('/')
         except:
-            return 'there was an issue updating your car '
+            return 'there was an issue updating your car'
     else:
-        return render_template('update.html'task=task)
+        return render_template('update.html',task=task)
 
 
 
